@@ -2,14 +2,14 @@
 def find_checksum(data):
     data_bits = bin(int.from_bytes(data))[2:]  # Converte os dados em uma representação binária de bits
     sum_checksum = bin(sum(map(ord, data_bits)))[2:]  # Calcula a soma binária dos bits
-    slice_lenght = 8
+    slice_length = 8
     # Adiciona bits em caso de overflow
-    if len(sum_checksum) > slice_lenght:
-        x = len(sum_checksum) - slice_lenght
+    if len(sum_checksum) > slice_length:
+        x = len(sum_checksum) - slice_length
         sum_checksum = bin(int(sum_checksum[:x], 2) + int(sum_checksum[x:], 2))[2:]
     # Preenche com zeros à esquerda se necessário
-    if len(sum_checksum) < slice_lenght:
-        sum_checksum = "0" * (slice_lenght - len(sum_checksum)) + sum_checksum
+    if len(sum_checksum) < slice_length:
+        sum_checksum = "0" * (slice_length - len(sum_checksum)) + sum_checksum
     # Calcula o complemento da soma
     return str(sum_checksum)
 
