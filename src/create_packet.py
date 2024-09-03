@@ -1,4 +1,4 @@
-import struct  # Bilioteca que Interpreta bytes como dados binários compactados
+import struct  # Biblioteca que Interpreta bytes como dados binários compactados
 
 import constants as const
 from checksum import find_checksum
@@ -10,7 +10,7 @@ def create_packet(seq_num, data=None, isACK=None):
         fragment = struct.pack("!II", seq_num, isACK)  # Pacote completo
     # Se for um pacote contendo dados
     else:
-        # Criando strtura de dados do tipo bytearray
+        # Criando estrutura de dados do tipo bytearray
         data = str(data).encode()
         data_bytes = bytearray()
         data_bytes.extend(data)
