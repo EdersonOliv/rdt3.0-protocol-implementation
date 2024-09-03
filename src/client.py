@@ -67,7 +67,9 @@ class App(tk.Tk):
             row=0, column=0, padx=5, pady=2, sticky=tk.W
         )
         msg = tk.Text(send_frame, height=4, width=30)
+        msg.focus_set()
         msg.grid(row=1, column=0, columnspan=3, rowspan=3, padx=5, pady=2)
+        msg.focus_set()
         ttk.Button(send_frame, text="Enviar", command=lambda: message(msg, his, 0)).grid(
             column=3, row=1
         )
@@ -81,6 +83,7 @@ class App(tk.Tk):
         def message(msg, his, choice):
             data = msg.get("1.0", "end-1c")
             msg.delete("1.0", tk.END)
+            msg.focus_set()
             if data == "":
                 messagebox.showwarning("Atenção", "Campo vazio!")
             else:
@@ -205,6 +208,7 @@ class App(tk.Tk):
         tk.Label(initial_frame, text="Porta: ").grid(row=1, column=0, padx=5, pady=1, sticky=tk.W)
         adrr = tk.Text(initial_frame, height=1, width=30)
         adrr.grid(row=0, column=1, padx=5, pady=1, sticky=tk.W)
+        adrr.focus_set()
         tk.Label(initial_frame, text=f"{const.SERVER_PORT}").grid(row=1, column=1, padx=5, pady=1, sticky=tk.W)
         # Botão para conectar ao servidor
         entrar = ttk.Button(initial_frame, text="Entrar", command=lambda: self.to_enter(initial_frame, adrr))
