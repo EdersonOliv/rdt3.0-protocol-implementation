@@ -122,7 +122,10 @@ class App(tk.Tk):
                 self.client_socket.settimeout(const.TIMEOUT)
                 self.client_socket.sendto(packet, self.SERVER_ADRR)
                 try:
-                    _ = self.client_socket.recv(const.BUFF_SIZE)
+                    response = self.client_socket.recv(const.BUFF_SIZE)
+                    received_seq_num, _ = struct.unpack("!II", response)
+                    if received_seq_num != seq_num:
+                        pass
                 # Se o tempo de espera acabar, enviar novamente
                 except TimeoutError:
                     print("Tempo de envio do pacote excedeu o tempo limite!")
