@@ -43,7 +43,7 @@ class Server:
                     message = create_packet(seq_num, None, 1)
                     self.sever_socket.sendto(message, client_adrr)
                 elif checksum != checksum_check:
-                    print("Detectado pacote corrompido!")
+                    print(f"Detectado pacote corrompido! (enviado: {checksum}, gerado: {checksum_check})")
                     print("Aguardando reenvio do pacote...")
                 # Caso o pacote esteja correto
                 else:

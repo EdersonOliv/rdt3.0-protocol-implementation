@@ -16,4 +16,4 @@ def find_checksum(data):
 
 # Teste de checksum
 if __name__ == "__main__":
-    print(type(find_checksum("0".encode())))
+    print(find_checksum("0".encode()))

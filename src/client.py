@@ -95,6 +95,7 @@ class App(tk.Tk):
 
                 his.config(state=tk.NORMAL)
                 his.insert(tk.END, f"Servidor retornou: {modified_message}\n")
+                his.insert(tk.END, "---------------------------------------\n")
                 his.config(state=tk.DISABLED)
 
     def send(self, data, choice):
